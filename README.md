@@ -1,2 +1,3 @@
-# SomeSwingDemo
-Yes, just some Swing demo.
+# 前言
+因为生存问题，所以要从零开始学习这项古老的技术。  
+在这里会按照一个新手最容易理解的方式，来构建swing的知识体系，并充实各种demo，可以保证开箱即用。
