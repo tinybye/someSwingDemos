@@ -19,32 +19,28 @@ public class FlowLayoutDemo {
         // 添加FlowLayout布局管理器，LEADING是跟随容器方向的开始边对齐，这是个依赖父容器的对齐，可以理解为相对方向。
         // 后面两个参数是容器内组件之间水平和竖直的间距
         jPanel1.setLayout(new FlowLayout(FlowLayout.LEADING, 20, 20));
+        // 如果不指定ComponentOrientation，则LEADING会让组件从左对齐。如果指定为ComponentOrientation.RIGHT_TO_LEFT，则组件会跟随者从右对齐。
+        jPanel1.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         // 添加FlowLayout布局管理器，LEFT是和容器的左边对齐，这是个固定方向的对齐
         jPanel2.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 20));
         // 添加FlowLayout布局管理器，CENTER是居中对齐
-        jPanel3.setLayout(new FlowLayout(FlowLayout.CENTER, 40, 40));
+        jPanel3.setLayout(new FlowLayout(FlowLayout.CENTER, 60, 20));
         jFrame.add(jPanel1, BorderLayout.NORTH);
         jFrame.add(jPanel2, BorderLayout.CENTER);
         jFrame.add(jPanel3, BorderLayout.SOUTH);
-        jFrame.setBounds(300, 200, 300, 150);
+        jFrame.setBounds(300, 200, 800, 300);
         jFrame.setVisible(true);
     }
 
     public static JPanel getJPanel() {
         JPanel jPanel = new JPanel();
-        JButton btn1 = new JButton("1");
-        JButton btn2 = new JButton("2");
-        JButton btn3 = new JButton("3");
-        JButton btn4 = new JButton("4");
-        JButton btn5 = new JButton("5");
-        JButton btn6 = new JButton("6");
         // 面板中添加按钮
-        jPanel.add(btn1);
-        jPanel.add(btn2);
-        jPanel.add(btn3);
-        jPanel.add(btn4);
-        jPanel.add(btn5);
-        jPanel.add(btn6);
+        jPanel.add(new JButton("1"));
+        jPanel.add(new JButton("2"));
+        jPanel.add(new JButton("3"));
+        jPanel.add(new JButton("4"));
+        jPanel.add(new JButton("5"));
+        jPanel.add(new JButton("6"));
         return jPanel;
     }
 }
