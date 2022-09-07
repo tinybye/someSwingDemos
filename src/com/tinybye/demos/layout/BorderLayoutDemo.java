@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * BorderLayout是默认布局
+ * BorderLayout 是 Window、JFrame 和 JDialog 的默认布局管理器
  * 该布局可以管理最多5个组件，位置是东西南北中五个方位
  * 可以去掉某个方位，来改变布局样式
  * 适合页面简单的布局
