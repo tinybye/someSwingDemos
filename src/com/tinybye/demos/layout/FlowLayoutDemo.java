@@ -4,26 +4,26 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Á÷Ê½²¼¾Ö¹ÜÀíÆ÷ÊÇ JPanel ºÍ JApplet µÄÄ¬ÈÏ²¼¾Ö¹ÜÀíÆ÷
- * ×é¼ş´Ó×óµ½ÓÒ£¬´ÓÉÏµ½ÏÂÅÅÁĞ£¬×é¼şµÄÎ»ÖÃ¸ù¾İ´°¿Ú´óĞ¡µÄ±ä»¯¶ø±ä¶¯
+ * æµå¼å¸ƒå±€ç®¡ç†å™¨æ˜¯ JPanel å’Œ JApplet çš„é»˜è®¤å¸ƒå±€ç®¡ç†å™¨
+ * ç»„ä»¶ä»å·¦åˆ°å³ï¼Œä»ä¸Šåˆ°ä¸‹æ’åˆ—ï¼Œç»„ä»¶çš„ä½ç½®æ ¹æ®çª—å£å¤§å°çš„å˜åŒ–è€Œå˜åŠ¨
  *
  * @author tinybye
  * @date 2022/9/6
  */
 public class FlowLayoutDemo {
     public static void main(String[] args) {
-        JFrame jFrame = new JFrame("Á÷Ê½²¼¾Ö³¤É¶Ñù");
+        JFrame jFrame = new JFrame("æµå¼å¸ƒå±€é•¿å•¥æ ·");
         JPanel jPanel1 = getJPanel();
         JPanel jPanel2 = getJPanel();
         JPanel jPanel3 = getJPanel();
-        // Ìí¼ÓFlowLayout²¼¾Ö¹ÜÀíÆ÷£¬LEADINGÊÇ¸úËæÈİÆ÷·½ÏòµÄ¿ªÊ¼±ß¶ÔÆë£¬ÕâÊÇ¸öÒÀÀµ¸¸ÈİÆ÷µÄ¶ÔÆë£¬¿ÉÒÔÀí½âÎªÏà¶Ô·½Ïò¡£
-        // ºóÃæÁ½¸ö²ÎÊıÊÇÈİÆ÷ÄÚ×é¼şÖ®¼äË®Æ½ºÍÊúÖ±µÄ¼ä¾à
+        // æ·»åŠ FlowLayoutå¸ƒå±€ç®¡ç†å™¨ï¼ŒLEADINGæ˜¯è·Ÿéšå®¹å™¨æ–¹å‘çš„å¼€å§‹è¾¹å¯¹é½ï¼Œè¿™æ˜¯ä¸ªä¾èµ–çˆ¶å®¹å™¨çš„å¯¹é½ï¼Œå¯ä»¥ç†è§£ä¸ºç›¸å¯¹æ–¹å‘ã€‚
+        // åé¢ä¸¤ä¸ªå‚æ•°æ˜¯å®¹å™¨å†…ç»„ä»¶ä¹‹é—´æ°´å¹³å’Œç«–ç›´çš„é—´è·
         jPanel1.setLayout(new FlowLayout(FlowLayout.LEADING, 20, 20));
-        // Èç¹û²»Ö¸¶¨ComponentOrientation£¬ÔòLEADING»áÈÃ×é¼ş´Ó×ó¶ÔÆë¡£Èç¹ûÖ¸¶¨ÎªComponentOrientation.RIGHT_TO_LEFT£¬Ôò×é¼ş»á¸úËæÕß´ÓÓÒ¶ÔÆë¡£
+        // å¦‚æœä¸æŒ‡å®šComponentOrientationï¼Œåˆ™LEADINGä¼šè®©ç»„ä»¶ä»å·¦å¯¹é½ã€‚å¦‚æœæŒ‡å®šä¸ºComponentOrientation.RIGHT_TO_LEFTï¼Œåˆ™ç»„ä»¶ä¼šè·Ÿéšè€…ä»å³å¯¹é½ã€‚
         jPanel1.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        // Ìí¼ÓFlowLayout²¼¾Ö¹ÜÀíÆ÷£¬LEFTÊÇºÍÈİÆ÷µÄ×ó±ß¶ÔÆë£¬ÕâÊÇ¸ö¹Ì¶¨·½ÏòµÄ¶ÔÆë
+        // æ·»åŠ FlowLayoutå¸ƒå±€ç®¡ç†å™¨ï¼ŒLEFTæ˜¯å’Œå®¹å™¨çš„å·¦è¾¹å¯¹é½ï¼Œè¿™æ˜¯ä¸ªå›ºå®šæ–¹å‘çš„å¯¹é½
         jPanel2.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 20));
-        // Ìí¼ÓFlowLayout²¼¾Ö¹ÜÀíÆ÷£¬CENTERÊÇ¾ÓÖĞ¶ÔÆë
+        // æ·»åŠ FlowLayoutå¸ƒå±€ç®¡ç†å™¨ï¼ŒCENTERæ˜¯å±…ä¸­å¯¹é½
         jPanel3.setLayout(new FlowLayout(FlowLayout.CENTER, 60, 20));
         jFrame.add(jPanel1, BorderLayout.NORTH);
         jFrame.add(jPanel2, BorderLayout.CENTER);
@@ -34,7 +34,7 @@ public class FlowLayoutDemo {
 
     public static JPanel getJPanel() {
         JPanel jPanel = new JPanel();
-        // Ãæ°åÖĞÌí¼Ó°´Å¥
+        // é¢æ¿ä¸­æ·»åŠ æŒ‰é’®
         jPanel.add(new JButton("1"));
         jPanel.add(new JButton("2"));
         jPanel.add(new JButton("3"));

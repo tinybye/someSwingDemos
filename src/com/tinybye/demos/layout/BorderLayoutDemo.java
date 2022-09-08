@@ -4,25 +4,25 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * BorderLayout ÊÇ Window¡¢JFrame ºÍ JDialog µÄÄ¬ÈÏ²¼¾Ö¹ÜÀíÆ÷
- * ¸Ã²¼¾Ö¿ÉÒÔ¹ÜÀí×î¶à5¸ö×é¼ş£¬Î»ÖÃÊÇ¶«Î÷ÄÏ±±ÖĞÎå¸ö·½Î»
- * ¿ÉÒÔÈ¥µôÄ³¸ö·½Î»£¬À´¸Ä±ä²¼¾ÖÑùÊ½
- * ÊÊºÏÒ³Ãæ¼òµ¥µÄ²¼¾Ö
+ * BorderLayout æ˜¯ Windowã€JFrame å’Œ JDialog çš„é»˜è®¤å¸ƒå±€ç®¡ç†å™¨
+ * è¯¥å¸ƒå±€å¯ä»¥ç®¡ç†æœ€å¤š5ä¸ªç»„ä»¶ï¼Œä½ç½®æ˜¯ä¸œè¥¿å—åŒ—ä¸­äº”ä¸ªæ–¹ä½
+ * å¯ä»¥å»æ‰æŸä¸ªæ–¹ä½ï¼Œæ¥æ”¹å˜å¸ƒå±€æ ·å¼
+ * é€‚åˆé¡µé¢ç®€å•çš„å¸ƒå±€
  *
  * @author tinybye
  * @date 2022/9/7
  */
 public class BorderLayoutDemo {
     public static void main(String[] args) {
-        JFrame frame = new JFrame("BorderLayout²¼¾Ö³¤É¶Ñù");
-        // ¹¹Ôì·½·¨¿ÉÒÔÖ¸¶¨×é¼şµÄË®Æ½ºÍ´¹Ö±¼ä¾à£¬µ±È»ÎŞ²Î¹¹Ôì·½·¨ÔòÄ¬ÈÏ¼ä¾àÎª0ÁË
+        JFrame frame = new JFrame("BorderLayoutå¸ƒå±€é•¿å•¥æ ·");
+        // æ„é€ æ–¹æ³•å¯ä»¥æŒ‡å®šç»„ä»¶çš„æ°´å¹³å’Œå‚ç›´é—´è·ï¼Œå½“ç„¶æ— å‚æ„é€ æ–¹æ³•åˆ™é»˜è®¤é—´è·ä¸º0äº†
         BorderLayout layout = new BorderLayout(10,10);
         frame.setLayout(layout);
-        JButton up = new JButton("ÉÏ");
-        JButton left = new JButton("×ó");
-        JButton center = new JButton("ÖĞ");
-        JButton right = new JButton("ÓÒ");
-        JButton down = new JButton("ÏÂ");
+        JButton up = new JButton("ä¸Š");
+        JButton left = new JButton("å·¦");
+        JButton center = new JButton("ä¸­");
+        JButton right = new JButton("å³");
+        JButton down = new JButton("ä¸‹");
         frame.add(up, BorderLayout.NORTH);
         frame.add(left, BorderLayout.WEST);
         frame.add(center, BorderLayout.CENTER);

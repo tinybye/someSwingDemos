@@ -3,7 +3,7 @@ package com.tinybye.demos.frame;
 import javax.swing.*;
 
 /**
- * Ö»ÓĞhello worldµÄ´°¿Ú
+ * åªæœ‰hello worldçš„çª—å£
  *
  * @author tinybye
  * @date 2022/9/6
@@ -13,14 +13,14 @@ public class SimpleFrame extends JFrame {
         super(title);
         JLabel label = new JLabel("Hello world!");
         add(label);
-        // Ö¸¶¨´°¿ÚÎ»ÖÃÓë´óĞ¡
+        // æŒ‡å®šçª—å£ä½ç½®ä¸å¤§å°
         setBounds(300, 100, 400, 200);
-        // ÏÔÊ¾´°¿Ú
+        // æ˜¾ç¤ºçª—å£
         setVisible(true);
 
     }
 
     public static void main(String[] args) {
-        new SimpleFrame("ÎÒÊÇÒ»¸ö´°¿Ú");
+        new SimpleFrame("æˆ‘æ˜¯ä¸€ä¸ªçª—å£");
     }
 }

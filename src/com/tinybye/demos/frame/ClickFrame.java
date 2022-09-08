@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Ò»¸öÓĞ½»»¥µÄ´°¿Ú
+ * ä¸€ä¸ªæœ‰äº¤äº’çš„çª—å£
  *
  * @author tinybye
  * @date 2022/9/6
@@ -15,27 +15,27 @@ public class ClickFrame extends JFrame {
 
     public ClickFrame(String title) {
         super(title);
-        JLabel label = new JLabel("µã»÷´ÎÊı£º" + count);
-        JButton button = new JButton("µãÎÒ");
-        // °´Å¥¼àÌıÊÂ¼ş
+        JLabel label = new JLabel("ç‚¹å‡»æ¬¡æ•°ï¼š" + count);
+        JButton button = new JButton("ç‚¹æˆ‘");
+        // æŒ‰é’®ç›‘å¬äº‹ä»¶
         button.addActionListener(e -> {
             count++;
-            // µ¯³öÒ»¸ö¼òÒ×µÄdialog¶Ô»°¿ò
-            JOptionPane.showMessageDialog(null, "±ğµãÁË£¬±ğµãÁË£¡");
-            label.setText("µã»÷´ÎÊı£º" + count);
+            // å¼¹å‡ºä¸€ä¸ªç®€æ˜“çš„dialogå¯¹è¯æ¡†
+            JOptionPane.showMessageDialog(null, "åˆ«ç‚¹äº†ï¼Œåˆ«ç‚¹äº†ï¼");
+            label.setText("ç‚¹å‡»æ¬¡æ•°ï¼š" + count);
         });
-        // ÉèÖÃ²¼¾Ö£¬ÕâÀïÊ¹ÓÃÁ÷Ê½²¼¾Ö
+        // è®¾ç½®å¸ƒå±€ï¼Œè¿™é‡Œä½¿ç”¨æµå¼å¸ƒå±€
         setLayout(new FlowLayout());
-        // ±êÇ©ºÍ°´Å¥¶¼Ìí¼Ó½ø´°¿Ú
+        // æ ‡ç­¾å’ŒæŒ‰é’®éƒ½æ·»åŠ è¿›çª—å£
         add(label);
         add(button);
-        // Ö¸¶¨´°¿ÚÎ»ÖÃÓë´óĞ¡
+        // æŒ‡å®šçª—å£ä½ç½®ä¸å¤§å°
         setBounds(300, 100, 200, 100);
-        // ÏÔÊ¾´°¿Ú
+        // æ˜¾ç¤ºçª—å£
         setVisible(true);
     }
 
     public static void main(String[] args) {
-        new ClickFrame("Ò»¸öÓĞ½»»¥µÄ´°¿Ú");
+        new ClickFrame("ä¸€ä¸ªæœ‰äº¤äº’çš„çª—å£");
     }
 }

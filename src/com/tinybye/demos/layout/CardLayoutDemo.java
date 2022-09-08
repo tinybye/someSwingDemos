@@ -4,40 +4,40 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * ¿¨Æ¬²¼¾Ö¹ÜÀíÆ÷
- * ¿ÉÒÔÀí½âÎª£¬°Ñ×é¼şµ±×ö¿¨Æ¬Ò»Ñù¶ÑµşÔÚÒ»Æğ£¬²¢¿ÉÒÔ¿ØÖÆÏÔÊ¾Ä³¸ö×é¼ş
- * ÊÊºÏÓĞÔÚµ±Ç°Ò³ÃæÇĞ»»µÄÂß¼­Ê±Ê¹ÓÃ
+ * å¡ç‰‡å¸ƒå±€ç®¡ç†å™¨
+ * å¯ä»¥ç†è§£ä¸ºï¼ŒæŠŠç»„ä»¶å½“åšå¡ç‰‡ä¸€æ ·å †å åœ¨ä¸€èµ·ï¼Œå¹¶å¯ä»¥æ§åˆ¶æ˜¾ç¤ºæŸä¸ªç»„ä»¶
+ * é€‚åˆæœ‰åœ¨å½“å‰é¡µé¢åˆ‡æ¢çš„é€»è¾‘æ—¶ä½¿ç”¨
  *
  * @author tinybye
  * @date 2022/9/7
  */
 public class CardLayoutDemo {
     public static void main(String[] agrs) {
-        JFrame frame = new JFrame("¿¨Æ¬²¼¾Ö³¤É¶Ñù");
+        JFrame frame = new JFrame("å¡ç‰‡å¸ƒå±€é•¿å•¥æ ·");
         JPanel panel1 = new JPanel();
         JPanel panel2 = new JPanel();
-        // ¿¨Æ¬Ê½²¼¾ÖµÄÃæ°å
+        // å¡ç‰‡å¼å¸ƒå±€çš„é¢æ¿
         CardLayout cardLayout = new CardLayout();
         frame.setLayout(cardLayout);
 
-        JButton loginButton = new JButton("È¥µÇÂ¼");
+        JButton loginButton = new JButton("å»ç™»å½•");
         loginButton.addActionListener(e -> {
-            // ÈÃ¿¨Æ¬²¼¾Ö¹ÜÀíÆ÷Õ¹Ê¾ÃûÎªcard2µÄÃæ°å
+            // è®©å¡ç‰‡å¸ƒå±€ç®¡ç†å™¨å±•ç¤ºåä¸ºcard2çš„é¢æ¿
             cardLayout.show(frame.getContentPane(), "card2");
         });
         panel1.add(loginButton);
-        panel1.add(new JButton("È¥×¢²á"));
-        panel2.add(new JTextField("ÓÃ»§Ãû", 20));
-        panel2.add(new JTextField("ÃÜÂë", 20));
-        JButton returnButton = new JButton("·µ»ØÊ×Ò³");
+        panel1.add(new JButton("å»æ³¨å†Œ"));
+        panel2.add(new JTextField("ç”¨æˆ·å", 20));
+        panel2.add(new JTextField("å¯†ç ", 20));
+        JButton returnButton = new JButton("è¿”å›é¦–é¡µ");
         returnButton.addActionListener(e -> {
-            // ÈÃ¿¨Æ¬²¼¾Ö¹ÜÀíÆ÷Õ¹Ê¾ÃûÎªcard1µÄÃæ°å
+            // è®©å¡ç‰‡å¸ƒå±€ç®¡ç†å™¨å±•ç¤ºåä¸ºcard1çš„é¢æ¿
             cardLayout.show(frame.getContentPane(), "card1");
         });
         panel2.add(returnButton);
-        // Ìí¼ÓÃæ°å1£¬½«¸ÃÃæ°åÃüÃûÎªcard1
+        // æ·»åŠ é¢æ¿1ï¼Œå°†è¯¥é¢æ¿å‘½åä¸ºcard1
         frame.add(panel1, "card1");
-        // Ìí¼ÓÃæ°å2£¬½«¸ÃÃæ°åÃüÃûÎªcard2
+        // æ·»åŠ é¢æ¿2ï¼Œå°†è¯¥é¢æ¿å‘½åä¸ºcard2
         frame.add(panel2, "card2");
         frame.setBounds(300, 200, 300, 200);
         frame.setVisible(true);
