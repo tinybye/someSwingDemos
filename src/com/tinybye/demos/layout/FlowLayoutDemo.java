@@ -16,19 +16,20 @@ public class FlowLayoutDemo {
         JPanel jPanel1 = getJPanel();
         JPanel jPanel2 = getJPanel();
         JPanel jPanel3 = getJPanel();
-        // 添加FlowLayout布局管理器，LEADING是跟随容器方向的开始边对齐，这是个依赖父容器的对齐，可以理解为相对方向。
-        // 后面两个参数是容器内组件之间水平和竖直的间距
-        jPanel1.setLayout(new FlowLayout(FlowLayout.LEADING, 20, 20));
-        // 如果不指定ComponentOrientation，则LEADING会让组件从左对齐。如果指定为ComponentOrientation.RIGHT_TO_LEFT，则组件会跟随者从右对齐。
-        jPanel1.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        // 添加FlowLayout布局管理器，无参默认居中对齐
+        jPanel1.setLayout(new FlowLayout());
         // 添加FlowLayout布局管理器，LEFT是和容器的左边对齐，这是个固定方向的对齐
         jPanel2.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 20));
-        // 添加FlowLayout布局管理器，CENTER是居中对齐
-        jPanel3.setLayout(new FlowLayout(FlowLayout.CENTER, 60, 20));
+        // 添加FlowLayout布局管理器，LEADING是跟随容器方向的开始边对齐，这是个依赖父容器的对齐，可以理解为相对方向。
+        // 后面两个参数是容器内组件之间水平和竖直的间距
+        jPanel3.setLayout(new FlowLayout(FlowLayout.LEADING, 20, 20));
+        // 如果不指定ComponentOrientation，则LEADING会让组件从左对齐。如果指定为ComponentOrientation.RIGHT_TO_LEFT，则组件会跟随者从右对齐。
+        jPanel3.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
         jFrame.add(jPanel1, BorderLayout.NORTH);
         jFrame.add(jPanel2, BorderLayout.CENTER);
         jFrame.add(jPanel3, BorderLayout.SOUTH);
-        jFrame.setBounds(300, 200, 800, 300);
+        jFrame.setBounds(300, 200, 800, 200);
         jFrame.setVisible(true);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
