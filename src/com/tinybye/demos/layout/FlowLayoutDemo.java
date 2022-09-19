@@ -30,6 +30,7 @@ public class FlowLayoutDemo {
         jFrame.add(jPanel3, BorderLayout.SOUTH);
         jFrame.setBounds(300, 200, 800, 300);
         jFrame.setVisible(true);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public static JPanel getJPanel() {

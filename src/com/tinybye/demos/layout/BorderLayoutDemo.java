@@ -30,5 +30,6 @@ public class BorderLayoutDemo {
         frame.add(down, BorderLayout.SOUTH);
         frame.setBounds(300, 200, 600, 300);
         frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

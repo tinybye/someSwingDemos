@@ -41,5 +41,6 @@ public class CardLayoutDemo {
         frame.add(panel2, "card2");
         frame.setBounds(300, 200, 300, 200);
         frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

@@ -20,9 +20,9 @@ public class ClickFrame extends JFrame {
         // 按钮监听事件
         button.addActionListener(e -> {
             count++;
+            label.setText("点击次数：" + count);
             // 弹出一个简易的dialog对话框
             JOptionPane.showMessageDialog(null, "别点了，别点了！");
-            label.setText("点击次数：" + count);
         });
         // 设置布局，这里使用流式布局
         setLayout(new FlowLayout());

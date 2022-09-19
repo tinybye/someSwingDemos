@@ -24,5 +24,6 @@ public class GridLayoutDemo {
         jFrame.add(new TextField());
         jFrame.setBounds(300, 200, 300, 300);
         jFrame.setVisible(true);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
