@@ -12,62 +12,62 @@ import java.awt.event.ActionEvent;
  * @date 2022/9/8
  */
 public class GridBagLayoutDemo {
-    /**
-     * 网格包布局，这个应该是比较常用的。最灵活最复杂的布局方式。
-     */
+
     public static void main(String[] args) {
         // 搞一个拨号盘的窗口
-        JFrame frame = new JFrame("拨号盘");
-        // 创建GridBagLayout布局管理器
-        GridBagLayout gridBagLayout = new GridBagLayout();
+        JFrame frame = new JFrame("用网格包布局搞个拨号盘");
+        // 指定GridBagLayout布局管理器
+        frame.setLayout(new GridBagLayout());
         // 我们需要一个GridBagConstraints来指定每个组件在布局中的位置、大小、间距等信息
         GridBagConstraints constraints = new GridBagConstraints();
-        // 将frame配置成GridBagLayout布局管理器
-        frame.setLayout(gridBagLayout);
-        // 组件填充显示区域
+        // 组件填充显示区域，both为横向纵向都填充满单元格
         constraints.fill = GridBagConstraints.BOTH;
-        // 恢复默认值
-        constraints.weightx = 0.0;
-        // 结束行
-        constraints.gridwidth = GridBagConstraints.REMAINDER;
-        JTextField tf = new JTextField("");
-        //
-        gridBagLayout.setConstraints(tf, constraints);
-        frame.add(tf);
-        // 指定组件的分配区域 到底是干啥的呢？
-        constraints.weightx = 0.5;
-        constraints.weighty = 0.2;
-        constraints.gridwidth = 1;
-        makeNumberButton("7", frame, gridBagLayout, constraints, tf);    //调用方法，添加按钮组件
-        makeNumberButton("8", frame, gridBagLayout, constraints, tf);
-        constraints.gridwidth = GridBagConstraints.REMAINDER;    //结束行
-        makeNumberButton("9", frame, gridBagLayout, constraints, tf);
-        constraints.gridwidth = 1;    //重新设置gridwidth的值
+        // 指定组件间距
+        constraints.insets = new Insets(5, 5, 5, 5);
 
-        makeNumberButton("4", frame, gridBagLayout, constraints, tf);
-        makeNumberButton("5", frame, gridBagLayout, constraints, tf);
+        // gridwidth指定为到本行结束，即第一行文本框直接绘制到行位
         constraints.gridwidth = GridBagConstraints.REMAINDER;
-        makeNumberButton("6", frame, gridBagLayout, constraints, tf);
+        JLabel tf = new JLabel(" ");
+        tf.setHorizontalAlignment(JLabel.CENTER);
+        frame.add(tf, constraints);
+
+        // 指定组件横纵的拉伸比例
+        constraints.weightx = 1;
+        constraints.weighty = 1;
+        // gridwidth置为1，即每个按钮占据一个单元格，下面的相似操作不再重复注释
+        constraints.gridwidth = 1;
+        //调用方法，添加按钮组件
+        makeNumberButton("7", frame, constraints, tf);
+        makeNumberButton("8", frame, constraints, tf);
+        // gridwidth指定为到本行结束，即按钮9为当前行末尾，下面的相似操作不再重复注释
+        constraints.gridwidth = GridBagConstraints.REMAINDER;
+        makeNumberButton("9", frame, constraints, tf);
+
+        // 重新设置gridwidth的值
+        constraints.gridwidth = 1;
+        makeNumberButton("4", frame, constraints, tf);
+        makeNumberButton("5", frame, constraints, tf);
+        constraints.gridwidth = GridBagConstraints.REMAINDER;
+        makeNumberButton("6", frame, constraints, tf);
+
+        constraints.gridwidth = 1;
+        makeNumberButton("1", frame, constraints, tf);
+        makeNumberButton("2", frame, constraints, tf);
+        constraints.gridwidth = GridBagConstraints.REMAINDER;
+        makeNumberButton("3", frame, constraints, tf);
         constraints.gridwidth = 1;
 
-        makeNumberButton("1", frame, gridBagLayout, constraints, tf);
-        makeNumberButton("2", frame, gridBagLayout, constraints, tf);
+        makeClearButton("清空", frame, constraints, tf);
         constraints.gridwidth = GridBagConstraints.REMAINDER;
-        makeNumberButton("3", frame, gridBagLayout, constraints, tf);
-        constraints.gridwidth = 1;
-
-        makeClearButton("清空", frame, gridBagLayout, constraints, tf);
-        constraints.gridwidth = GridBagConstraints.REMAINDER;
-        makeCallButton("拨号", frame, gridBagLayout, constraints, tf);
-        constraints.gridwidth = 1;
-        frame.setBounds(400, 400, 400, 400);    //设置容器大小
+        makeCallButton("拨号", frame, constraints, tf);
+        //设置容器大小
+        frame.setBounds(400, 400, 400, 400);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     }
 
-    public static void makeNumberButton(String title, JFrame frame, GridBagLayout gridBagLayout, GridBagConstraints constraints, JTextField tf) {
-        JButton button = new JButton(title);    //创建Button对象
+    public static void makeNumberButton(String title, JFrame frame, GridBagConstraints constraints, JLabel tf) {
+        JButton button = new JButton(title);
         // 给button增加事件
         button.addActionListener(new AbstractAction() {
             @Override
@@ -75,26 +75,24 @@ public class GridBagLayoutDemo {
                 tf.setText(tf.getText() + title);
             }
         });
-        // 这个方法和gridBagLayout.setConstraints效果一样，本质上也是走到了这里
+        // frame.add最终也是走到了gridBagLayout.setConstraints方法
         frame.add(button, constraints);
     }
 
-    public static void makeClearButton(String title, JFrame frame, GridBagLayout gridBagLayout, GridBagConstraints constraints, JTextField tf) {
-        JButton button = new JButton(title);    //创建Button对象
-        gridBagLayout.setConstraints(button, constraints);
+    public static void makeClearButton(String title, JFrame frame, GridBagConstraints constraints, JLabel tf) {
+        JButton button = new JButton(title);
         // 给button增加事件
         button.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tf.setText("");
+                tf.setText(" ");
             }
         });
-        frame.add(button);
+        frame.add(button, constraints);
     }
 
-    public static void makeCallButton(String title, JFrame frame, GridBagLayout gridBagLayout, GridBagConstraints constraints, JTextField tf) {
-        JButton button = new JButton(title);    //创建Button对象
-        gridBagLayout.setConstraints(button, constraints);
+    public static void makeCallButton(String title, JFrame frame, GridBagConstraints constraints, JLabel tf) {
+        JButton button = new JButton(title);
         // 给button增加事件
         button.addActionListener(new AbstractAction() {
             @Override
@@ -102,14 +100,14 @@ public class GridBagLayoutDemo {
                 new CallDialog(tf.getText());
             }
         });
-        frame.add(button);
+        frame.add(button, constraints);
     }
 
     static class CallDialog extends JDialog {
         public CallDialog(String text) {
             this.setVisible(true);
             this.setBounds(400, 400, 100, 100);
-            this.getContentPane().add(new Label("给" + text + "拨号中……"));
+            this.getContentPane().add(new Label("给" + text.trim() + "拨号中……"));
         }
     }
 }
