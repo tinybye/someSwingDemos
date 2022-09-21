@@ -36,7 +36,7 @@ public class GridBagLayoutDemo {
         constraints.weighty = 1;
         // gridwidth置为1，即每个按钮占据一个单元格，下面的相似操作不再重复注释
         constraints.gridwidth = 1;
-        //调用方法，添加按钮组件
+        // 调用方法，添加按钮组件
         makeNumberButton("7", frame, constraints, tf);
         makeNumberButton("8", frame, constraints, tf);
         // gridwidth指定为到本行结束，即按钮9为当前行末尾，下面的相似操作不再重复注释
@@ -64,6 +64,66 @@ public class GridBagLayoutDemo {
         frame.setBounds(400, 400, 400, 400);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public static void anotherMain(String[] args) {
+        // 搞一个拨号盘的窗口
+        JFrame frame = new JFrame("用网格包布局搞个拨号盘");
+        // 指定GridBagLayout布局管理器
+        frame.setLayout(new GridBagLayout());
+        // 我们需要一个GridBagConstraints来指定每个组件在布局中的位置、大小、间距等信息
+        GridBagConstraints constraints = new GridBagConstraints();
+        // 组件填充显示区域，both为横向纵向都填充满单元格
+        constraints.fill = GridBagConstraints.BOTH;
+        // 指定组件间距
+        constraints.insets = new Insets(5, 5, 5, 5);
+
+        // 第0行第0列开始
+        setXY(constraints, 0, 0);
+        // gridwidth设置为3，代表横向占用三个单元格
+        constraints.gridwidth = 3;
+        JLabel tf = new JLabel(" ");
+        tf.setHorizontalAlignment(JLabel.CENTER);
+        frame.add(tf, constraints);
+
+        // 指定组件横纵的拉伸比例
+        constraints.weightx = 1;
+        constraints.weighty = 1;
+        // gridwidth置为1，即每个按钮占据一个单元格
+        constraints.gridwidth = 1;
+        setXY(constraints, 0, 1);
+        makeNumberButton("7", frame, constraints, tf);
+        setXY(constraints, 1, 1);
+        makeNumberButton("8", frame, constraints, tf);
+        setXY(constraints, 2, 1);
+        makeNumberButton("9", frame, constraints, tf);
+        setXY(constraints, 0, 2);
+        makeNumberButton("4", frame, constraints, tf);
+        setXY(constraints, 1, 2);
+        makeNumberButton("5", frame, constraints, tf);
+        setXY(constraints, 2, 2);
+        makeNumberButton("6", frame, constraints, tf);
+        setXY(constraints, 0, 3);
+        makeNumberButton("1", frame, constraints, tf);
+        setXY(constraints, 1, 3);
+        makeNumberButton("2", frame, constraints, tf);
+        setXY(constraints, 2, 3);
+        makeNumberButton("3", frame, constraints, tf);
+        setXY(constraints, 0, 4);
+        makeClearButton("清空", frame, constraints, tf);
+        setXY(constraints, 1, 4);
+        constraints.gridwidth = 2;
+        makeCallButton("拨号", frame, constraints, tf);
+
+        //设置容器大小
+        frame.setBounds(400, 400, 400, 400);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    private static void setXY(GridBagConstraints constraints, int x, int y) {
+        constraints.gridx = x;
+        constraints.gridy = y;
     }
 
     public static void makeNumberButton(String title, JFrame frame, GridBagConstraints constraints, JLabel tf) {
